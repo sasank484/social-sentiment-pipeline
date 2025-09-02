@@ -12,8 +12,6 @@ YouTube API → C++ CLI (ingest_yt) → NDJSON (data/raw)
 → Python (transform_comments.py) → CSV/Parquet (data/curated)
 → Power BI report (pbix)
 
-yaml
-Copy code
 
 ---
 
@@ -25,23 +23,24 @@ Copy code
 ---
 
 ## 📂 Folder Structure
-cpp_ingest/ # C++ ETL client
-include/, src/
-build/ # compiled binaries (ignored in git)
+```
+├── cpp_ingest/ # C++ ETL client
+│ ├── include/
+│ ├── src/
+│ └── build/ # compiled binaries (ignored in git)
+│
+├── py_transform/ # Python transformer
+│ ├── requirements.txt
+│ └── transform_comments.py
+│
+├── data/
+│ ├── raw/ # NDJSON outputs from ingestion (ignored in git)
+│ └── curated/ # CSV/Parquet cleaned outputs (ignored in git)
+│
+├── run_verizon.sh # Batch ingestion script for multiple keyword sets
+└── README.md
+```
 
-py_transform/ # Python transformer
-requirements.txt
-transform_comments.py
-
-data/
-raw/ # NDJSON outputs from ingestion (ignored in git)
-curated/ # CSV/Parquet cleaned outputs (ignored in git)
-
-run_verizon.sh # Batch ingestion script for multiple keyword sets
-README.md
-
-yaml
-Copy code
 
 ---
 
@@ -54,10 +53,11 @@ cd cpp_ingest
 mkdir build && cd build
 cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release
-This produces:
+
 ```
+This produces:
 ```bash
-Copy code
+
 cpp_ingest/build/Release/ingest_yt.exe
 ```
 ### 2. Run Ingestion
