@@ -1,0 +1,32 @@
+# C++ / CMake (Windows + vcpkg)
+build/
+cpp_ingest/build/
+.vs/
+*.VC.db
+*.VC.opendb
+*.vcxproj.user
+*.sln.DotSettings
+*.obj
+*.pdb
+*.exe
+*.log
+
+# vcpkg build artifacts
+vcpkg_installed/
+installed/
+packages/
+
+# Python
+__pycache__/
+*.pyc
+py_transform/.venv/
+
+# Data (outputs)
+data/raw/
+data/curated/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

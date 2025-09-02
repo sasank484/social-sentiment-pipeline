@@ -1,0 +1,4 @@
+pandas
+pyarrow
+vaderSentiment
+python-dateutil
