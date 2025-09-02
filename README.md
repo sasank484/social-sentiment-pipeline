@@ -55,39 +55,44 @@ mkdir build && cd build
 cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_TOOLCHAIN_FILE="$VCPKG_ROOT/scripts/buildsystems/vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release
 This produces:
-
-bash
+```
+```bash
 Copy code
 cpp_ingest/build/Release/ingest_yt.exe
-2. Run Ingestion
+```
+### 2. Run Ingestion
 Set your YouTube Data API key:
 
-bash
-Copy code
-export YOUTUBE_API_KEY="YOUR_API_KEY"
-Example run:
+```bash
 
-bash
-Copy code
+export YOUTUBE_API_KEY="YOUR_API_KEY"
+
+```
+Example run:
+```bash
+
 ./ingest_yt.exe --brand "verizon" --keywords "verizon,5g" --days 30 --limit_videos 30 --out ../../data/raw/verizon_5g.ndjson
+```
 Batch run across multiple keywords:
 
-bash
-Copy code
+```bash
+
 cd cpp_ingest/build
 bash run_verizon.sh
-3. Transform + Sentiment (Python)
+```
+### 3. Transform + Sentiment (Python)
 Install dependencies:
 
-bash
-Copy code
+```bash
 cd py_transform
 pip install -r requirements.txt
+```
 Run the transformer:
 
-bash
-Copy code
+```bash
+
 python transform_comments.py --in ../data/raw --out ../data/curated --brand verizon
+```
 Outputs:
 
 comments_clean.csv → full dataset with sentiment labels
@@ -96,25 +101,10 @@ comments_clean.parquet → fast format (optional)
 
 sentiment_counts.csv → aggregated positive/negative/neutral counts
 
-4. Power BI Dashboard
+### 4. Power BI Dashboard
 Open Power BI Desktop → Get Data → CSV and load:
 
 data/curated/comments_clean.csv
 
 data/curated/sentiment_counts.csv
 
-Suggested visuals:
-
-Card: Total number of comments
-
-Line Chart: Sentiment over time (x=created_dt, legend=sent_label)
-
-Stacked Bar: Top keywords by sentiment (keywords_str)
-
-Gauges: Positive % / Negative % sentiment
-
-Pie Chart: Overall sentiment distribution
-
-Table: Most liked comments (author, text, like_count)
-
-(Optional) Word Cloud: Common terms in comments
