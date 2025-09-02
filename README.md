@@ -104,5 +104,5 @@ sentiment_counts.csv → aggregated positive/negative/neutral counts
 ### 4. Power BI Dashboard
 The final Power BI dashboard provides interactive insights into customer sentiment.  
 It includes sentiment over time, top keywords, most liked comments, and sentiment distribution.
-![Dashboard Preview](docs/dashboard.png)
+![Dashboard Preview](dashboard.png)
 
