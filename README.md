@@ -1,10 +1,27 @@
-# Social Sentiment Pipeline (YouTube → C++ → Python → Power BI)
+### Social Sentiment Pipeline (YouTube → C++ → Python → Power BI)
 
-End-to-end data pipeline to collect and analyze **YouTube comments** about a brand (e.g., Verizon).  
-Built with **C++ for ingestion**, **Python for transformation + sentiment scoring**, and **Power BI for dashboarding**.  
+This project implements an end-to-end **data engineering and analytics pipeline** that ingests, cleans, and visualizes customer sentiment from **YouTube comments**.  
+The workflow demonstrates how to combine **C++ for scalable ingestion**, **Python for data transformation and sentiment scoring**, and **Power BI for business intelligence dashboards**.  
 
-This project demonstrates real-world **ETL (Extract, Transform, Load)** skills with meaningful business insights.
+### 🌟 Project Goals
+- Automate **data ingestion** from the YouTube Data API using a custom C++ ETL client.  
+- Transform and enrich comments with **cleaning, deduplication, and sentiment analysis** using Python (VADER).  
+- Deliver actionable insights with a **Power BI dashboard** for stakeholders.  
 
+### 📊 Key Insights (from the dashboard below)
+- Collected **2,222 comments** over a **150-day window** related to Verizon.  
+- **Sentiment distribution:** ~42% positive, ~30% negative, ~28% neutral.  
+- Peaks in negative sentiment aligned with reported **network outages**, while positive sentiment was higher around **customer service and support discussions**.  
+- The most liked positive comment gained **398 likes**, showing strong engagement on supportive content.  
+- Keywords like *experience*, *customer service*, and *support* dominated conversation themes.  
+
+
+---
+
+## 📊 Dashboard Preview
+The Power BI dashboard below combines sentiment trends, keyword analysis, and comment highlights:  
+
+![Dashboard Preview](docs/dashboard.png)
 ---
 
 ## 🚀 Architecture
@@ -101,8 +118,4 @@ comments_clean.parquet → fast format (optional)
 
 sentiment_counts.csv → aggregated positive/negative/neutral counts
 
-### 4. Power BI Dashboard
-The final Power BI dashboard provides interactive insights into customer sentiment.  
-It includes sentiment over time, top keywords, most liked comments, and sentiment distribution.
-![Dashboard Preview](docs/dashboard.png)
 
