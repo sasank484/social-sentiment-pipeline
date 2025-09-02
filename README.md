@@ -102,9 +102,7 @@ comments_clean.parquet → fast format (optional)
 sentiment_counts.csv → aggregated positive/negative/neutral counts
 
 ### 4. Power BI Dashboard
-Open Power BI Desktop → Get Data → CSV and load:
-
-data/curated/comments_clean.csv
-
-data/curated/sentiment_counts.csv
+The final Power BI dashboard provides interactive insights into customer sentiment.  
+It includes sentiment over time, top keywords, most liked comments, and sentiment distribution.
+![Dashboard Preview](docs/dashboard.png)
 
